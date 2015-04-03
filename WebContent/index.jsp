@@ -83,7 +83,7 @@
 <!-- Menu das categorias -->			
 		<div id='lateral' align="left">
 			 	<font color="#FF0033"><u>  <h2>Categorias</h2><br><br></u>
-				<a href='index.php'> Todas </a>  <br>
+				<a href='index.jsp'> Todas </a>  <br>
 				<?php
 					mysql_connect("localhost","root","");
 					mysql_select_db("projeto") or 
