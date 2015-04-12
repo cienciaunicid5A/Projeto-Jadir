@@ -1,0 +1,49 @@
+
+
+<%@page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.List"%>
+<%@ page import="br.edu.unicid.bean.Aluno"%>
+
+<%@page contentType="text/html"%>
+<%@page pageEncoding="ISO-8859-1"%>
+<html>
+<head>
+<title>Lista Produtos</title>
+</head>
+<body>
+	<center>
+		<table width="100%" border="1" cellpadding="2" cellspacing="0">
+			<tr>
+				<th colspan="6"><h3>Lista de Produtos</h3></th>
+			</tr>
+			<tr> 
+				<th>Codigo do produto</th>
+				<th>Nome</th>
+				<th>Categoria</th>
+				<th>Estoque</th>
+				<th>Preço de venda</th>
+			</tr>
+			<%
+				SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
+				List<Produtos> lista = new ArrayList<Produtos>();
+				lista = (ArrayList) request.getAttribute("produtosList");
+				for (Produtos a : lista) {
+			%>
+			<tr>
+				<td><%=a.getcodProduto()%></td>
+				<td><%=a.getNomeProduto()%></td>
+				<td><%=a.getcategoriaProduto()%></td>
+				<td><%=a.estoqueProdutos()%></td>
+				<td><%=a.getprecoProdutos()%></td>
+			</tr>
+			<%
+				}
+			%>
+			<tr>
+				<td colspan="6" align="center"><a href="index.jsp">Página Principal</a></td>
+			</tr>
+		</table>
+	</center>
+</body>
+</html>

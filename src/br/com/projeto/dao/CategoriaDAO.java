@@ -32,7 +32,9 @@ public class CategoriaDAO {
 				while (rs.next()) {
 					int codigo = rs.getInt("codigo");
 					String categoria = rs.getString("categoria");
-					list.add(new Categoria (codigo, categoria));
+					String linha = rs.getString("linha");
+					String faixaEtaria = rs.getString("faixaEtaria");
+					list.add(new Categoria (codigo, categoria, linha, faixaEtaria));
 				}
 				return list;
 			} catch (SQLException sqle) {

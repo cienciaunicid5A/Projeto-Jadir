@@ -1,27 +1,30 @@
--- Banco de Dados: projeto
+﻿
 
-CREATE TABLE  categorias (
-  codigo int(11) NOT NULL AUTO_INCREMENT,
-  categoria varchar(15) DEFAULT NULL,
-  PRIMARY KEY (codigo)
+create table CATEGORIAS (
+codigo int(11) NOT NULL AUTO_INCREMENT,
+categoria varchar(15) DEFAULT NULL,
+linha varchar(10) DEFAULT NULL,
+faixaEtaria varchar(20) DEFAULT NULL,
+PRIMARY KEY(CODIGO)
 );
 
+INSERT INTO CATEGORIAS (CODIGO, CATEGORIA, LINHA, FAIXAETARIA) VALUES
+(1,'BONECAS','Meninas','de 3 a 12 anos'),
+(2,'CAMINHOES','Meninos','até 12 anos'),
+(3,'COZINHAS','Meninas','até 12 anos'),
+(4,'HELICOPTEROS','Meninos','de 3 a 12 anos'),
+(5,'JOGOS','Todos','de 6 a 15 anos'),
+(6,'MOTOS','Meninos','de 3 a 12 anos'),
+(7,'PRAIA','Todos','Todas'),
+(8,'TRATORES','Meninos','de 3 a 12 anos');
 
-INSERT INTO categorias (codigo, categoria) VALUES
-(1, 'Bonecas'),
-(2, 'Caminhões'),
-(3, 'Cozinhas'),
-(4, 'Helicópteros'),
-(5, 'Jogos'),
-(6, 'Motos'),
-(7, 'Praia'),
-(8, 'Tratores');
 
--- Estrutura da tabela produtos
+
+
 
 CREATE TABLE produtos (
   codigo int(11) NOT NULL AUTO_INCREMENT,
-  categoria int(11) DEFAULT NULL,
+  categoria varchar(15) DEFAULT NULL,
   estoque int(5) DEFAULT NULL,
   nome varchar(20) DEFAULT NULL,
   precoVenda float(6,2) DEFAULT NULL,
@@ -34,38 +37,76 @@ CREATE TABLE produtos (
 -- Extraindo dados da tabela produtos
 --
 
+
 INSERT INTO produtos (codigo, categoria, estoque, nome, precoVenda, fotoPrincipal, fotoSite, descricao) VALUES
-(1, 1, 50, 'BOENCA MONICA', 70.00, 'img01Grande.jpg', 'img01.jpg', 'Boneca Monica a melhor amiga da sua filha'),
-(2, 1, 30, 'BARBIE CORREDORA', 80.00, 'img02Grande.jpg', 'img02.jpg', 'Barbie corredora estimulando atividade fisica'),
-(3, 1, 36, 'BONECA MONSTER', 65.00, 'img03Grande.jpg', 'img03.jpg', 'Os alunos da Monster High vão voar alto em sua primeira viagem internacional juntos!'),
-(4, 1, 67, 'BONECA FRANKIE STEIN', 45.00, 'img04Grande.jpg', 'img04.jpg', 'A famosa Frankie Stein mostra que ser assustadora é questão de estilo com sua roupa clássica!'),
-(5, 2, 32, 'SCANIA', 85.00, 'img05Grande.jpg', 'img05.jpg', 'Scania transporte seus  carros!'),
-(6, 2, 78, 'CEGONNHA', 76.00, 'img06Grande.jpg', 'img06.jpg', 'Leve seus carrinhos com você'),
-(7, 2, 56, 'CAMINHAO DE LIXO', 62.00, 'img07Grande.jpg', 'img07.jpg', 'Caminhao de lixo, promovendo a limpeza'),
-(8, 2, 30, 'BETONEIRA', 46.00, 'img08Grande.jpg', 'img08.jpg', 'Betoneira transportando cimento'),
-(9, 3, 35, 'COZINHA MATEL', 150.00, 'img09Grande.jpg', 'img09.jpg', 'Cozinhando para a sua familia'),
-(10, 3, 40, 'COZINHA DA BARBIE', 170.00, 'img10Grande.jpg', 'img10.jpg', 'Venha aprender a cozinhar com a Barbie'),
-(11, 3, 20, 'COZINHA ESTRELA', 189.00, 'img11Grande.jpg', 'img11.jpg', 'Cozinha estrela de uma estrela para outra'),
-(12, 3, 34, 'LIQUIDIFICADOR', 30.00, 'img12Grande.jpg', 'img12.jpg', 'Aprendendo a fazer sucos e vitaminas'),
-(13, 4, 45, 'HELICOPTERO DE COMBATE', 98.00, 'img13Grande.jpg', 'img13.jpg', 'Protegendo voce dos seus inimigos'),
-(14, 4, 30, 'HELICOPTERO DE CONTROLE REMOTO', 290.00, 'img14Grande.jpg', 'img14.jpg', 'Aprendendo a voar'),
-(15, 4, 67, 'HELICOPTERO DE RESGATE', 280.00, 'img15Grande.jpg', 'img15.jpg', 'Salvando Vidas'),
-(16, 4, 54, 'HELICOPTERO', 270.00, 'img16Grande.jpg', 'img16.jpg', 'Transportanto voce e sua familia'),
-(17, 5, 36, 'BANCO IMONBILIARIO LUXO', 89.00, 'img17Grande.jpg', 'img17.jpg', 'Ensinando a controlar sua vida financeira'),
-(18, 5, 27, 'MONOPOLY', 89.00, 'img18Grande.jpg', 'img18.jpg', 'Conquiste as maiores marcas do mundo'),
-(19, 5, 34, 'PERFIL 5', 70.00, 'img19Grande.jpg', 'img19.jpg', 'De quantas dicas voce precisa'),
-(20, 5, 28, 'DESAFINO', 87.00, 'img20Grande.jpg', 'img20.jpg', '1000 musicas para voce e seus amigos desafinarem sem dó'),
-(21, 6, 60, 'MOTO YAMAHA', 70.00, 'img21Grande.jpg', 'img21.jpg', 'Se transforme em verdadeiro piloto'),
-(22, 6, 45, 'MOTO SUZUKI', 73.00, 'img22Grande.jpg', 'img22.jpg', ' Venha competir voce tambem'),
-(23, 6, 34, 'MOTO DUCATI', 98.00, 'img23Grande.jpg', 'img23.jpg', 'O retorno da numero 1'),
-(24, 6, 65, 'MOTO DUCATI ENGENUS', 92.00, 'img24Grande.jpg', 'img24.jpg', 'Ensinando voce a competir'),
-(25, 7, 56, 'JOGO DE BALDE PEIXE', 24.00, 'img25Grande.jpg', 'img25.jpg', 'Transportando riquezas'),
-(26, 7, 39, 'JOGO DE MERGULHO', 50.00, 'img26Grande.jpg', 'img26.jpg', 'Mostrando a voce as riquezas que estao em nossas aguas'),
-(27, 7, 36, 'JOGO DE PA', 34.00, 'img27Grande.jpg', 'img27.jpg', 'Construindo grandes castelos'),
-(28, 7, 48, 'JOGO SALVA VIDA', 70.00, 'img28Grande.jpg', 'img28.jpg', 'Protegendo seu bem mais precioso'),
-(29, 8, 67, 'TRATOR CARREGADOR', 76.00, 'img29Grande.jpg', 'img29.jpg', 'Carregando sonhos'),
-(30, 8, 45, 'TRATOR MATTEL', 98.00, 'img30Grande.jpg', 'img30.jpg', 'Caminhão carregador para voce se divertir'),
-(31, 8, 54, 'TRATOR MINIATURA', 74.00, 'img31Grande.jpg', 'img31.jpg', 'Miniatura para colecionadores'),
-(32, 8, 46, 'RETROESCAVADEIRA', 120.00, 'img32Grande.jpg', 'img32.jpg', 'Retroescavadeira para construir grandes obras');
+
+(1, 'BONECAS', 50, 'BOENCA MONICA', 70.00, 'img01Grande.jpg', 'img01.jpg', 'Boneca Monica a melhor amiga da sua filha'),
+
+(2, 'BONECAS', 30, 'BARBIE CORREDORA', 80.00, 'img02Grande.jpg', 'img02.jpg', 'Barbie corredora estimulando atividade fisica'),
+
+(3, 'BONECAS', 36, 'BONECA MONSTER', 65.00, 'img03Grande.jpg', 'img03.jpg', 'Os alunos da Monster High vão voar alto em sua primeira viagem internacional juntos!'),
+
+(4, 'BONECAS', 67, 'BONECA FRANKIE STEIN', 45.00, 'img04Grande.jpg', 'img04.jpg', 'A famosa Frankie Stein mostra que ser assustadora é questão de estilo com sua roupa clássica!'),
+
+(5, 'CAMINHOES', 32, 'SCANIA', 85.00, 'img05Grande.jpg', 'img05.jpg', 'Scania transporte seus  carros!'),
+
+(6, 'CAMINHOES', 78, 'CEGONNHA', 76.00, 'img06Grande.jpg', 'img06.jpg', 'Leve seus carrinhos com você'),
+
+(7, 'CAMINHOES', 56, 'CAMINHAO DE LIXO', 62.00, 'img07Grande.jpg', 'img07.jpg', 'Caminhao de lixo, promovendo a limpeza'),
+
+(8, 'CAMINHOES', 30, 'BETONEIRA', 46.00, 'img08Grande.jpg', 'img08.jpg', 'Betoneira transportando cimento'),
+
+(9, 'COZINHAS', 35, 'COZINHA MATEL', 150.00, 'img09Grande.jpg', 'img09.jpg', 'Cozinhando para a sua familia'),
+
+(10, 'COZINHAS', 40, 'COZINHA DA BARBIE', 170.00, 'img10Grande.jpg', 'img10.jpg', 'Venha aprender a cozinhar com a Barbie'),
+
+(11, 'COZINHAS', 20, 'COZINHA ESTRELA', 189.00, 'img11Grande.jpg', 'img11.jpg', 'Cozinha estrela de uma estrela para outra'),
+
+(12, 'COZINHAS', 34, 'LIQUIDIFICADOR', 30.00, 'img12Grande.jpg', 'img12.jpg', 'Aprendendo a fazer sucos e vitaminas'),
+
+(13, 'HELICOPTEROS', 45, 'HELICOPTERO DE COMBATE', 98.00, 'img13Grande.jpg', 'img13.jpg', 'Protegendo voce dos seus inimigos'),
+
+(14, 'HELICOPTEROS', 30, 'HELICOPTERO DE CONTROLE REMOTO', 290.00, 'img14Grande.jpg', 'img14.jpg', 'Aprendendo a voar'),
+
+(15, 'HELICOPTEROS', 67, 'HELICOPTERO DE RESGATE', 280.00, 'img15Grande.jpg', 'img15.jpg', 'Salvando Vidas'),
+
+(16, 'HELICOPTEROS', 54, 'HELICOPTERO', 270.00, 'img16Grande.jpg', 'img16.jpg', 'Transportanto voce e sua familia'),
+
+(17, 'JOGOS', 36, 'BANCO IMONBILIARIO LUXO', 89.00, 'img17Grande.jpg', 'img17.jpg', 'Ensinando a controlar sua vida financeira'),
+
+(18, 'JOGOS', 27, 'MONOPOLY', 89.00, 'img18Grande.jpg', 'img18.jpg', 'Conquiste as maiores marcas do mundo'),
+
+(19, 'JOGOS', 34, 'PERFIL 5', 70.00, 'img19Grande.jpg', 'img19.jpg', 'De quantas dicas voce precisa'),
+
+(20, 'JOGOS', 28, 'DESAFINO', 87.00, 'img20Grande.jpg', 'img20.jpg', '1000 musicas para voce e seus amigos desafinarem sem dó'),
+
+(21, 'MOTOS', 60, 'MOTO YAMAHA', 70.00, 'img21Grande.jpg', 'img21.jpg', 'Se transforme em verdadeiro piloto'),
+
+(22, 'MOTOS', 45, 'MOTO SUZUKI', 73.00, 'img22Grande.jpg', 'img22.jpg', ' Venha competir voce tambem'),
+
+(23, 'MOTOS', 34, 'MOTO DUCATI', 98.00, 'img23Grande.jpg', 'img23.jpg', 'O retorno da numero 1'),
+
+(24, 'MOTOS', 65, 'MOTO DUCATI ENGENUS', 92.00, 'img24Grande.jpg', 'img24.jpg', 'Ensinando voce a competir'),
+
+(25, 'PRAIA', 56, 'JOGO DE BALDE PEIXE', 24.00, 'img25Grande.jpg', 'img25.jpg', 'Transportando riquezas'),
+
+(26, 'PRAIA', 39, 'JOGO DE MERGULHO', 50.00, 'img26Grande.jpg', 'img26.jpg', 'Mostrando a voce as riquezas que estao em nossas aguas'),
+
+(27, 'PRAIA', 36, 'JOGO DE PA', 34.00, 'img27Grande.jpg', 'img27.jpg', 'Construindo grandes castelos'),
+
+(28, 'PRAIA', 48, 'JOGO SALVA VIDA', 70.00, 'img28Grande.jpg', 'img28.jpg', 'Protegendo seu bem mais precioso'),
+
+(29, 'TRATORES', 67, 'TRATOR CARREGADOR', 76.00, 'img29Grande.jpg', 'img29.jpg', 'Carregando sonhos'),
+
+(30, 'TRATORES', 45, 'TRATOR MATTEL', 98.00, 'img30Grande.jpg', 'img30.jpg', 'Caminhão carregador para voce se divertir'),
+
+(31, 'TRATORES', 54, 'TRATOR MINIATURA', 74.00, 'img31Grande.jpg', 'img31.jpg', 'Miniatura para colecionadores'),
+
+(32, 'TRATORES', 46, 'RETROESCAVADEIRA', 120.00, 'img32Grande.jpg', 'img32.jpg', 'Retroescavadeira para construir grandes obras');
 
 
+
+
+Create table usuarios(login VARCHAR(10),senha VARCHAR(8),nomeCompleto VARCHAR(30),email VARCHAR(30));
+insert into usuarios (login, senha, nomeCompleto, email)
+values ('admin', 'admin', 'Administrador da Pagina', 'contato@toystok.com');

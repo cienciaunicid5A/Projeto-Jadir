@@ -5,11 +5,14 @@ public class Categoria {
 	// construtores
 	private int codigo;
 	private String categoria;
-
-	public Categoria(int codigo, String categoria) {
+	private String linha;
+	private String faixaEtaria;
+	
+	public Categoria(int codigo, String categoria, String linha, String faixaEtaria) {
 		this.codigo = codigo;
 		this.categoria = categoria;
-
+		this.linha = linha;
+		this.faixaEtaria = faixaEtaria;
 	}
 
 	public Categoria() {
@@ -29,6 +32,22 @@ public class Categoria {
 
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
+	}
+
+	public String getLinha() {
+		return linha;
+	}
+
+	public void setLinha(String linha) {
+		this.linha = linha;
+	}
+
+	public String getFaixaEtaria() {
+		return faixaEtaria;
+	}
+
+	public void setFaixaEtaria(String faixaEtaria) {
+		this.faixaEtaria = faixaEtaria;
 	}
 
 }

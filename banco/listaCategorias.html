@@ -1,0 +1,47 @@
+
+
+<%@page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.List"%>
+<%@ page import="br.edu.unicid.bean.Aluno"%>
+
+<%@page contentType="text/html"%>
+<%@page pageEncoding="ISO-8859-1"%>
+<html>
+<head>
+<title>Lista Categorias</title>
+</head>
+<body>
+	<center>
+		<table width="100%" border="1" cellpadding="2" cellspacing="0">
+			<tr>
+				<th colspan="6"><h3>Lista de Categorias</h3></th>
+			</tr>
+			<tr>  
+				<th>Codigo do produto</th>
+				<th>Categoria</th>
+				<th>Linha</th>
+				<th>Faixa Etária</th>
+			</tr>
+			<%
+				SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
+				List<Categorias> lista = new ArrayList<Categorias>();
+				lista = (ArrayList) request.getAttribute("categoriasList");
+				for (Categorias a : lista) {
+			%>
+			<tr>
+				<td><%=a.getcodProduto()%></td>
+				<td><%=a.getcategoria()%></td>
+				<td><%=a.getLinhaCategoria()%></td>
+				<td><%=a.faixaCategoria()%></td>
+			</tr>
+			<%
+				}
+			%>
+			<tr>
+				<td colspan="6" align="center"><a href="index.jsp">Página Principal</a></td>
+			</tr>
+		</table>
+	</center>
+</body>
+</html>
