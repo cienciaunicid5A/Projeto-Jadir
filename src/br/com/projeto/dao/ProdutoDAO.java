@@ -14,7 +14,7 @@ public class ProdutoDAO {
 	private Produto produto;
 
 	public ProdutoDAO() throws Exception {
-		// chama a classe ConnectionFactory e estabele uma conexão
+		// chama a classe ConnectionFactory e estabele uma conexï¿½o
 		try {
 			this.conn = ConnectionFactory.getConnection();
 		} catch (Exception e) {
@@ -40,7 +40,7 @@ public class ProdutoDAO {
 				float precoVenda = rs.getFloat("precoVenda");
 				String descricao = rs.getString("descricao");
 				
-				list.add(new Produto (estoque, nome, fotoPrincipal, fotoSite, precoVenda, descricao));
+				list.add(new Produto (estoque, nome, fotoPrincipal, fotoSite, precoVenda, descricao,codigo,categoria));
 
 			}
 			return list;
