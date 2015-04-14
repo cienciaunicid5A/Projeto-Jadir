@@ -62,9 +62,9 @@ div {
 			</u>
 
 				<center>
-					<a href='info01.jsp'> Cadastro de Categorias</a> <br>
-					<BR> <a href='info02.'> Cadastro de Produtos</a> <br>
-					<BR> <a href='info03.php'> Cadastro de Usuários</a> <br>
+					<a href="ServletCategorias?cmd=listar"> Cadastro de Categorias</a> <br>
+					<BR> <a href="ServletProdutos?cmd=listar"> Cadastro de Produtos</a> <br>
+					<BR> <a href="ServletUsuarios?cmd=listar"> Cadastro de Usuários</a> <br>
 					<BR>
 				</center>
 		</div>
