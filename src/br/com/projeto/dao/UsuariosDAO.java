@@ -23,6 +23,114 @@ public class UsuariosDAO {
 		}
 	}
 
+	// método de salvar
+	public void salvar(Usuarios usuarios) throws Exception {
+		if (usuarios == null)
+			throw new Exception("O valor passado nao pode ser nulo");
+		try {
+			String SQL = "INSERT INTO usuarios (login, senha, nomeCompleto, email) values (?, ?, ?, ?)";
+			conn = this.conn;
+			ps = conn.prepareStatement(SQL);
+
+			ps.setString(1, usuarios.getLogin());
+			ps.setString(2, usuarios.getSenha());
+			ps.setString(3, usuarios.getNomeCompleto());
+			ps.setString(4, usuarios.getEmail());
+			ps.executeUpdate();
+		} catch (SQLException sqle) {
+			throw new Exception("Erro ao inserir dados " + sqle);
+		} finally {
+			ConnectionFactory.closeConnection(conn, ps);
+		}
+	}
+
+	// método de atualizar
+	public void atualizar(Usuarios usuarios) throws Exception {
+		if (usuarios == null)
+			throw new Exception("O valor passado nao pode ser nulo");
+		try {
+			String SQL = "UPDATE usuarios set login=?, senha=?, nomeCompleto=?, email=? WHERE nomeCompleto = ?";
+			conn = this.conn;
+			ps = conn.prepareStatement(SQL);
+
+			ps.setString(1, usuarios.getLogin());
+			ps.setString(2, usuarios.getSenha());
+			ps.setString(3, usuarios.getNomeCompleto());
+			ps.setString(4, usuarios.getEmail());
+			ps.executeUpdate();
+		} catch (SQLException sqle) {
+			throw new Exception("Erro ao alterar dados " + sqle);
+		} finally {
+			ConnectionFactory.closeConnection(conn, ps);
+		}
+	}
+
+	// método de excluir
+	public void excluir(Usuarios usuarios) throws Exception {
+		if (usuarios == null)
+			throw new Exception("O valor passado nao pode ser nulo");
+		try {
+			String SQL = "DELETE FROM usuarios WHERE login=?";
+			conn = this.conn;
+			ps = conn.prepareStatement(SQL);
+			ps.setString(3, usuarios.getNomeCompleto());
+			ps.executeUpdate();
+		} catch (SQLException sqle) {
+			throw new Exception("Erro ao excluir dados " + sqle);
+		} finally {
+			ConnectionFactory.closeConnection(conn, ps);
+		}
+	}
+
+	// Procurar Usuarios
+	public Usuarios procurarUsuarios(String login) throws Exception {
+		try {
+			String SQL = "SELECT * FROM usuarios WHERE login=?";
+			conn = this.conn;
+			ps = conn.prepareStatement(SQL);
+			ps.setString(1, login);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+
+				String log = rs.getString("login");
+				String sen = rs.getString("senha");
+				String nome = rs.getString("nomeCompleto");
+				String ema = rs.getString("email");
+				usuarios = new Usuarios(log, sen, nome, ema);
+			}
+			return usuarios;
+		} catch (SQLException sqle) {
+			throw new Exception(sqle);
+		} finally {
+			ConnectionFactory.closeConnection(conn, ps, rs);
+		}
+	}
+
+	// login
+	public Usuarios loginUsuarios(String login, String senha) throws Exception {
+		try {
+			String SQL = "SELECT * FROM usuarios WHERE login=? and senha =?";
+			conn = this.conn;
+			ps = conn.prepareStatement(SQL);
+			ps.setString(1, login);
+			ps.setString(2, senha);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+
+				String log = rs.getString("login");
+				String sen = rs.getString("senha");
+				String nome = rs.getString("nomeCompleto");
+				String ema = rs.getString("email");
+				usuarios = new Usuarios(log, sen, nome, ema);
+			}
+			return usuarios;
+		} catch (SQLException sqle) {
+			throw new Exception(sqle);
+		} finally {
+			ConnectionFactory.closeConnection(conn, ps, rs);
+		}
+	}
+
 	// Listar todos os Usuarios
 	public List todosUsuarios() throws Exception {
 		try {
@@ -32,12 +140,12 @@ public class UsuariosDAO {
 			List<Usuarios> list = new ArrayList<Usuarios>();
 			while (rs.next()) {
 
-				String login = rs.getString("login");
-				String senha = rs.getString("senha");
-				String nomeCompleto = rs.getString("nomeCompleto");
-				String email = rs.getString("email");
+				String log = rs.getString("login");
+				String sen = rs.getString("senha");
+				String nome = rs.getString("nomeCompleto");
+				String ema = rs.getString("email");
 
-				list.add(new Usuarios(login, senha, nomeCompleto, email));
+				list.add(new Usuarios(log, sen, nome, ema));
 
 			}
 			return list;

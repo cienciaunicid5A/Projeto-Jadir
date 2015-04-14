@@ -4,36 +4,36 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Incluir Usuarios</title>
+<title>Incluir Categorias</title>
 </head>
 <body>
 	<center>
 		<table border="1" width="42%">
-			<form action="ServletUsuarios" method="get">
-				<input type="hidden" name="cmd" value="incluirUsuarios"> <br />
+			<form action="ServletCategorias" method="get">
+				<input type="hidden" name="cmd" value="incluirCategorias"> <br />
 
 
 				<tr>
-					<th colspan="2"><h1>Cadastro de Usuarios</h1></th>
+					<th colspan="2"><h1>Cadastro de Categorias</h1></th>
 				</tr>
 				<tr>
-					<td>Login:</td>
-					<td><input type="text" name="txtLogin" size="60"
+					<td>Codigo:</td>
+					<td><input type="text" name="txtCodigo" size="60"
 						maxlength="60"></td>
 				</tr>
 				<tr>
-					<td>Senha:</td>
-					<td><input type="text" name="txtSenha" size="60"
+					<td>Categoria:</td>
+					<td><input type="text" name="txtCategoria" size="60"
 						maxlength="60"></td>
 				</tr>
 				<tr>
-					<td>Nome Completo</td>
-					<td><input type="text" size="60" name="txtNomeCompleto"
+					<td>Linha:</td>
+					<td><input type="text" size="60" name="txtLinha"
 						maxlength="60"></td>
 				</tr>
 				<tr>
-					<td>E-mail:</td>
-					<td><input type="text" name="txtEmail" size="60"
+					<td>Faixa Etaria</td>
+					<td><input type="text" name="txtFaixaEtaria" size="60"
 						maxlength="60"></td>
 				</tr>
 			<tr>
