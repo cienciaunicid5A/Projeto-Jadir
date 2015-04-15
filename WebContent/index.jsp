@@ -4,52 +4,11 @@
 <html>
 <head>
 <title>Layout Home Page</title>
-<style>
-div {
-	color: black;
-	border: 1px solid black;
-}
+   <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-#cabec {background-color;
-	height: 125px;
-}
-
-#lateral {
-	background-color: #c9e7ff;
-	height: 530px;
-	width: 150px;
-	float: left;
-}
-
-#conteudo {
-	background-color: #c9e7ff;
-	height: 530px;
-	width: 1196px;
-	float: right;
-}
-
-#rodape {
-	height: 24px;
-	clear: both;
-	border: 1px solid black;
-}
-
-#geral {
-	width: 1350px;
-	border: 1px solid black;
-}
-
-.fotos {
-	width: 165px;
-	margin-right: 5px;
-	height: 130px;
-	border: 1px dotted red;
-	background-color: orange;
-	text-align: center;
-	float: left;
-	margin-top: 5px;
-}
-</style>
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
 </head>
 
 <body>
@@ -85,7 +44,45 @@ div {
 
 
 		<!-- Menu das categorias -->
-		<div id='lateral' align="left">
+		   <div id="sidebar-wrapper">
+		   	<tbody>
+					<c:forEach items="${caterias}" var="user">
+						<tr>
+							<td><c:out value="${user.categoria}" /></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+           <!--  <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Categorias 
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Shortcuts</a>
+                </li>
+                <li>
+                    <a href="#">Overview</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul> -->
+        </div>
+		
+	<!-- 	<div id='lateral' align="left">
 			<font color="#FF0033"><u>
 					<h2>Categorias</h2>
 					<br>
@@ -113,7 +110,7 @@ div {
 				?> <!-- Colocar link de cada categoria --> </font>
 
 
-		</div>
+		</div> -->
 
 
 
