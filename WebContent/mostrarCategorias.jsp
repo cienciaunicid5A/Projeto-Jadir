@@ -14,8 +14,7 @@
 			<tr>
 				<th colspan="6"><h3>Todas</h3></th>
 			</tr>
-			<tr><th><a href="atualizarCategoria.jsp">Alterar</a><a href="excluirCategoria.jsp">Excluir</a> </th>
-			<td><a href="incluirCategorias.jsp">Incluir</a> </td>
+			<tr><th><a href="atualizarCategoria.jsp">Alterar</a></th><th><a href="excluirCategoria.jsp">Excluir</a></th><th><a href="incluirCategorias.jsp">Incluir</a> </th>
 			</tr>
 			<tr>
 				<th>Codigo</th>
@@ -41,8 +40,7 @@
 				}
 			%>
 			<tr>
-				<td colspan="6" align="center"><a href="index.jsp">Página
-						Principal</a></td>
+				<td colspan="6" align="center"><a href="areaAdministrativa.jsp">Area Administrativa</a></td>
 			</tr>
 		</table>
 	</center>

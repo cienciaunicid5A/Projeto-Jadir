@@ -14,6 +14,8 @@
 			<tr>
 				<th colspan="6"><h3>Todas</h3></th>
 			</tr>
+			<tr><th><a href="atualizarUsuarios.jsp">Alterar</a></th><th><a href="excluirUsuario.jsp">Excluir</a></th><th><a href="incluirUsuarios.jsp">Incluir</a> </th>
+			</tr>
 			<tr>
 				<th>Login</th>
 				<th>Senha</th>
@@ -36,8 +38,7 @@
 				}
 			%>
 			<tr>
-				<td colspan="6" align="center"><a href="index.jsp">Página
-						Principal</a></td>
+				<td colspan="6" align="center"><a href="areaAdministrativa.jsp">Area Administrativa</a></td>
 			</tr>
 		</table>
 	</center>

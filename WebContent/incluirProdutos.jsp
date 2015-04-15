@@ -14,7 +14,7 @@
 
 
 				<tr>
-					<th colspan="2"><h1>Cadastro de Produtos</h1></th>
+					<th colspan="2"><h1>Incluir Produtos</h1></th>
 				</tr>
 				<tr>
 					<td>Codigo:</td>
