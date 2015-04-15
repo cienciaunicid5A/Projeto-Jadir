@@ -44,11 +44,11 @@
 
 
 		<!-- Menu das categorias -->
-		   <div id="sidebar-wrapper">
+		   <div>
 		   	<tbody>
-					<c:forEach items="${caterias}" var="user">
+					<c:forEach items="${caterias}" var="categoria">
 						<tr>
-							<td><c:out value="${user.categoria}" /></td>
+							<td><c:out value="${categoria.categoria}" /></td>
 						</tr>
 					</c:forEach>
 				</tbody>
