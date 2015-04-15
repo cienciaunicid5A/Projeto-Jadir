@@ -10,7 +10,7 @@
 			<form action="ServletProdutos?cmd=atuProdutos" method="post">
 				<tbody>
 					<tr>
-						<th colspan="2"><h2>Atualizar Produto</h2></th>
+						<th colspan="2"><h2>Alterar Produto</h2></th>
 					</tr>
 					<tr>
 						<td>Codigo:</td>

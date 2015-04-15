@@ -93,7 +93,7 @@ public class ServletProdutos extends HttpServlet {
 				produto = dao.procurarProduto(produto.getCodigo());
 				HttpSession session = request.getSession(true);
 				session.setAttribute("produto", produto);
-				rd = request.getRequestDispatcher("/formAtualzarProduto.jsp");
+				rd = request.getRequestDispatcher("/formAtualizarProduto.jsp");
 
 				// consulta produto***
 			} else if (cmd.equalsIgnoreCase("con")) {
@@ -105,8 +105,7 @@ public class ServletProdutos extends HttpServlet {
 				// altera aluno
 			} else if (cmd.equalsIgnoreCase("atualizarProduto")) {
 				dao.atualizar(produto);
-				rd = request
-						.getRequestDispatcher("ServletProdutos?cmd=listar");
+				rd = request.getRequestDispatcher("ServletProdutos?cmd=listar");
 
 				// direciona para a página principal
 			} else if (cmd.equalsIgnoreCase("principal")) {

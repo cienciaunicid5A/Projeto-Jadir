@@ -14,7 +14,7 @@
 
 
 				<tr>
-					<th colspan="2"><h1>Cadastro de Categorias</h1></th>
+					<th colspan="2"><h1>Incluir Categorias</h1></th>
 				</tr>
 				<tr>
 					<td>Codigo:</td>

@@ -14,7 +14,7 @@
 
 
 				<tr>
-					<th colspan="2"><h1>Cadastro de Usuarios</h1></th>
+					<th colspan="2"><h1>Incluir Usuarios</h1></th>
 				</tr>
 				<tr>
 					<td>Login:</td>
