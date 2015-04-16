@@ -43,14 +43,15 @@
 			<form action="ServletCategorias?cmd=atuCategorias" method="post">
 				<tbody>
 					<tr bgcolor='white' >
-						<td><b>Codigo:</b> <input type="text" name="txtCodigo" size="10"
+						<td><b>Codigo:</b> <input  type="text" name="txtCodigo" size="10"
 							maxlenght="10"/> 
-							<input type="submit" value="Alterar">
+							<input class="btn btn-danger" type="submit" value="Alterar">
 						</td>
 					</tr>
 
 			</form>
 		</table>
+		
 	</center>
 	
 	

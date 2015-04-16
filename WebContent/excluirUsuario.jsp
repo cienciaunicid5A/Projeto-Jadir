@@ -43,7 +43,7 @@
 			<form action="ServletUsuarios?cmd=excUsuarios" method="post">
 				<tbody>
 					<tr bgcolor='white' >
-						<td><b>Codigo:</b> <input type="text" name="txtlogin" size="10"
+						<td><b>Login:</b> <input type="text" name="txtlogin" size="10"
 							maxlenght="10"/> 
 							<input type="submit" value="Excluir">
 						</td>

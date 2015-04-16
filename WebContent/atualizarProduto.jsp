@@ -40,7 +40,7 @@
 
 <center>
 		<table class="table table-condensed">
-			<form action="ServletpProdutos?cmd=atuProdutos" method="post">
+			<form action="ServletProdutos?cmd=atuProdutos" method="post">
 				<tbody>
 					<tr bgcolor='white' >
 						<td><b>Codigo:</b> <input type="text" name="txtCodigo" size="10"

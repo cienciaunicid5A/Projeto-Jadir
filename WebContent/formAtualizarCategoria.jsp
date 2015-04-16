@@ -58,10 +58,11 @@
 						name="txtFaixaEtaria" value="<%=categoria.getFaixaEtaria()%>" /></td>
 				</tr>
 				<tr>
-					<th colspan="2">
-					<button class="btn btn-danger" type="button" name="btnAlterar">Confirma Atualização</button>
+					<td colspan="2">
+					<button class="btn btn-danger" type="submit" name="btnAtualizar">Confirma Atualização</button>
+				
 						
-						</th>
+						</td>
 				</tr>
 			</table>
 		</center>
