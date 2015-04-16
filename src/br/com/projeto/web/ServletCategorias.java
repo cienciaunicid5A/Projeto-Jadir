@@ -23,7 +23,7 @@ public class ServletCategorias extends HttpServlet {
 	protected void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		// a variável cmd indica o tipo de ação - incluir, alterar,
+		// a variï¿½vel cmd indica o tipo de aï¿½ï¿½o - incluir, alterar,
 		// consulta.....
 		String cmd = request.getParameter("cmd");
 		// cria um objeto dao - CRUD
@@ -52,7 +52,7 @@ public class ServletCategorias extends HttpServlet {
 			// lista todos as Categorias
 			if (cmd.equalsIgnoreCase("listar")) {
 				List categoriaList = dao.todasCategorias();
-				// cria uma sessão para encaminhar a lista para uma JSP
+				// cria uma sessï¿½o para encaminhar a lista para uma JSP
 				request.setAttribute("categoriaList", categoriaList);
 				// redireciona para a JSP mostraAlunosCads
 				rd = request.getRequestDispatcher("/mostrarCategorias.jsp");
@@ -63,7 +63,7 @@ public class ServletCategorias extends HttpServlet {
 				dao.salvar(categoria);
 				rd = request.getRequestDispatcher("ServletCategorias?cmd=listar");
 
-				// consulta aluno para exclusão
+				// consulta aluno para exclusï¿½o
 			} else if (cmd.equalsIgnoreCase("excCategoria")) {
 				categoria = dao.procurarCategoria(categoria.getCodigo());
 				HttpSession session = request.getSession(true);
@@ -76,7 +76,7 @@ public class ServletCategorias extends HttpServlet {
 				rd = request
 						.getRequestDispatcher("ServletCategorias?cmd=listar");
 
-				// consulta aluno para alteração
+				// consulta aluno para alteraï¿½ï¿½o
 			} else if (cmd.equalsIgnoreCase("atuCategorias")) {
 				categoria = dao.procurarCategoria(categoria.getCodigo());
 				HttpSession session = request.getSession(true);
@@ -96,11 +96,11 @@ public class ServletCategorias extends HttpServlet {
 				rd = request
 						.getRequestDispatcher("ServletCategorias?cmd=listar");
 
-				// direciona para a página principal
+				// direciona para a pï¿½gina principal
 			} else if (cmd.equalsIgnoreCase("principal")) {
 				rd = request.getRequestDispatcher("/index.jsp");
 			}
-			// executa a ação de direcionar para a página JSP
+			// executa a aï¿½ï¿½o de direcionar para a pï¿½gina JSP
 			rd.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

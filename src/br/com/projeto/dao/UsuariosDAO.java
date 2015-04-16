@@ -73,7 +73,7 @@ public class UsuariosDAO {
 			String SQL = "DELETE FROM usuarios WHERE login=?";
 			conn = this.conn;
 			ps = conn.prepareStatement(SQL);
-			ps.setString(3, usuarios.getNomeCompleto());
+			ps.setString(1, usuarios.getLogin());
 			ps.executeUpdate();
 		} catch (SQLException sqle) {
 			throw new Exception("Erro ao excluir dados " + sqle);

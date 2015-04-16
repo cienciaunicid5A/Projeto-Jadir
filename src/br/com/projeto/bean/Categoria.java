@@ -1,7 +1,5 @@
 package br.com.projeto.bean;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Categoria {
 	// padr�o JavaBean ou POJO � Classe com getters/setters, mais m�todos

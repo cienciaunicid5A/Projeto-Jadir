@@ -23,7 +23,7 @@
 				<th>Estoque</th>
 				<th>Nome</th>
 				<th>Preco Venda</th>
-				<th>Foto Princiapl</th>
+				<th>Foto Principal</th>
 				<th>Foto Site</th>
 				<th>Descrição</th>
 				

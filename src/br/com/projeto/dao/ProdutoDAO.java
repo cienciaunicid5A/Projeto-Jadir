@@ -108,7 +108,7 @@ public class ProdutoDAO {
 				float preco = rs.getFloat("precoVenda");
 				String desc = rs.getString("descricao");
 				
-				produto = new Produto(cod, cat, esto, nom, preco, site, principal, desc);
+				produto = new Produto(cod, cat, esto, nom, principal, site, preco, desc);
 			}
 
 			return produto;
@@ -137,8 +137,7 @@ public class ProdutoDAO {
 				float preco = rs.getFloat("precoVenda");
 				String desc = rs.getString("descricao");
 
-				list.add(new Produto(cod, cat, esto, nom, preco, site,
-						principal, desc));
+				list.add(new Produto(cod, cat, esto, nom, principal, site, preco, desc));
 
 			}
 			return list;

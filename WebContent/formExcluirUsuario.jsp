@@ -17,22 +17,22 @@
 				<tr>
 					<td>Login:</td>
 					<td><input type="text" maxlength="60" size="60" name="txtLogin"
-						value="<%=usuarios.getLogin()%>" readonly="readonly" /></td>
+						value="<%=usuarios.getLogin()%>" /></td>
 				</tr>
 				<tr>
 					<td>Senha:</td>
 					<td><input type="text" maxlength="60" size="60" name="txtSenha"
-						value="<%=usuarios.getSenha()%>" readonly="readonly" /></td>
+						value="<%=usuarios.getSenha()%>"  /></td>
 				</tr>
 				<tr>
 					<td>Nome Completo:</td>
 					<td><input type="text" maxlength="60" size="60"
-						name="txtNomeCompleto" value="<%=usuarios.getNomeCompleto()%>" readonly="readonly" /></td>
+						name="txtNomeCompleto" value="<%=usuarios.getNomeCompleto()%>" /></td>
 				</tr>
 				<tr>
 					<td>E-mail</td>
 					<td><input type="text" maxlength="60" size="60"
-						name="txtEmail" value="<%=usuarios.getEmail()%>" readonly="readonly" /></td>
+						name="txtEmail" value="<%=usuarios.getEmail()%>" /></td>
 				</tr>
 				<tr>
 					<th colspan="2"><input type="submit" maxlength="60" size="60"

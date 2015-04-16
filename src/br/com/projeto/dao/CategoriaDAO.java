@@ -51,7 +51,6 @@ public class CategoriaDAO {
 			String SQL = "UPDATE categorias set codigo=?, categoria=?, linha=?, faixaEtaria=? WHERE codigo = ?";
 			conn = this.conn;
 			ps = conn.prepareStatement(SQL);
-
 			ps.setInt(1, categoria.getCodigo());
 			ps.setString(2, categoria.getCategoria());
 			ps.setString(3, categoria.getLinha());

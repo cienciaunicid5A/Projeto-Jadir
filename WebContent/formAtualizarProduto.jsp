@@ -10,7 +10,7 @@
 	<jsp:useBean id="produto" scope="session"
 		class="br.com.projeto.bean.Produto" />
 	
-	<form action="ServletProduto?cmd=atualizarProduto" method="post">
+	<form action="ServletProdutos?cmd=atualizarProduto" method="post">
 		<center>
 			<table>
 			
