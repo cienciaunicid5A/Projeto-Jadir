@@ -107,8 +107,9 @@ public class ProdutoDAO {
 				String site = rs.getString("fotoSite");
 				float preco = rs.getFloat("precoVenda");
 				String desc = rs.getString("descricao");
-				
-				produto = new Produto(cod, cat, esto, nom, principal, site, preco, desc);
+
+				produto = new Produto(cod, cat, esto, nom, principal, site,
+						preco, desc);
 			}
 
 			return produto;
@@ -137,7 +138,56 @@ public class ProdutoDAO {
 				float preco = rs.getFloat("precoVenda");
 				String desc = rs.getString("descricao");
 
-				list.add(new Produto(cod, cat, esto, nom, principal, site, preco, desc));
+				list.add(new Produto(cod, cat, esto, nom, principal, site,
+						preco, desc));
+
+			}
+			return list;
+		} catch (SQLException sqle) {
+			throw new Exception(sqle);
+		} finally {
+			ConnectionFactory.closeConnection(conn, ps, rs);
+		}
+
+	}
+
+	// lista categorias
+	public List categorias() throws Exception {
+		try {
+			conn = this.conn;
+			ps = conn.prepareStatement("SELECT * FROM produtos");
+			rs = ps.executeQuery();
+			List<Produto> list = new ArrayList<Produto>();
+			while (rs.next()) {
+
+				String cat = rs.getString("categoria");
+
+				list.add(new Produto(cat));
+
+			}
+			return list;
+		} catch (SQLException sqle) {
+			throw new Exception(sqle);
+		} finally {
+			ConnectionFactory.closeConnection(conn, ps, rs);
+		}
+
+	}
+	// lista imagens
+	public List imagens() throws Exception {
+		try {
+			conn = this.conn;
+			ps = conn.prepareStatement("SELECT * FROM produtos");
+			rs = ps.executeQuery();
+			List<Produto> list = new ArrayList<Produto>();
+			while (rs.next()) {
+
+				String site = rs.getString("fotoSite");
+				int cod = rs.getInt("codigo");
+				String nom = rs.getString("nome");
+				float preco = rs.getFloat("precoVenda");
+
+				list.add(new Produto(site, cod, nom, preco));
 
 			}
 			return list;
@@ -147,4 +197,31 @@ public class ProdutoDAO {
 			ConnectionFactory.closeConnection(conn, ps, rs);
 		}
 	}
+	//lista detalhes
+	public List detalhes() throws Exception {
+		try {
+			conn = this.conn;
+			ps = conn.prepareStatement("SELECT * FROM produtos");
+			rs = ps.executeQuery();
+			List<Produto> list = new ArrayList<Produto>();
+			while (rs.next()) {
+
+				String principal = rs.getString("fotoPrincipal");
+				int cod = rs.getInt("codigo");
+				float preco = rs.getFloat("precoVenda");
+				String cat = rs.getString("categoria");
+				String desc = rs.getString("descricao");
+
+				list.add(new Produto(principal, cod, preco, cat, desc));
+
+			}
+			return list;
+		} catch (SQLException sqle) {
+			throw new Exception(sqle);
+		} finally {
+			ConnectionFactory.closeConnection(conn, ps, rs);
+		}
+
+	}
+
 }

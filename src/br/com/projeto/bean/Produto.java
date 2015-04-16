@@ -10,9 +10,10 @@ public class Produto {
 	private String fotoPrincipal;
 	private String fotoSite;
 	private String descricao;
-	
-	public Produto(int estoque,String nome,int codigo, String fotoSite,float precoVenda,String descricao
-			,String fotoPrincipal, String categoria ) {
+
+	public Produto(int codigo, String categoria, int estoque, String nome,
+			float precoVenda, String fotoPrincipal, String fotoSite,
+			String descricao) {
 		this.codigo = codigo;
 		this.categoria = categoria;
 		this.estoque = estoque;
@@ -25,6 +26,7 @@ public class Produto {
 	}
 
 	public Produto() {
+
 	}
 
 	public Produto(int cod, String cat, int esto, String nom, String principal,
@@ -36,6 +38,27 @@ public class Produto {
 		this.precoVenda = preco;
 		this.fotoPrincipal = principal;
 		this.fotoSite = site;
+		this.descricao = desc;
+	}
+
+	public Produto(String cat) {
+		this.categoria = cat;
+
+	}
+
+	public Produto(String site, int cod, String nom, float preco) {
+		this.codigo = cod;
+		this.nome = nom;
+		this.precoVenda = preco;
+		this.fotoSite = site;
+	}
+
+	public Produto(String principal, int cod, float preco, String cat,
+			String desc) {
+		this.codigo = cod;
+		this.categoria = cat;
+		this.precoVenda = preco;
+		this.fotoPrincipal = principal;
 		this.descricao = desc;
 
 	}
