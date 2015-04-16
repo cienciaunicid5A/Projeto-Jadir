@@ -44,7 +44,7 @@ public class ServletProdutos extends HttpServlet {
 				// inicializa os atributos da classe Categoria
 				produto.setCodigo(Integer.parseInt(request.getParameter("txtCodigo")));
 				produto.setCategoria(request.getParameter("txtCategoria"));
-				produto.setEstoque(Integer.parseInt(request.getParameter("txtEstoque")));
+				produto.setEstoque(Integer.parseUnsignedInt("txtEstoque"));
 				produto.setNome(request.getParameter("txtNome"));
 				produto.setPrecoVenda(Float.parseFloat(request.getParameter("txtPrecoVenda")));
 				produto.setFotoPrincipal(request.getParameter("txtFotoprincipal"));
@@ -85,8 +85,7 @@ public class ServletProdutos extends HttpServlet {
 				// exclui produto
 			} else if (cmd.equalsIgnoreCase("excluirProduto")) {
 				dao.excluir(produto);
-				rd = request
-						.getRequestDispatcher("ServletProdutos?cmd=listar");
+				rd = request.getRequestDispatcher("ServletProdutos?cmd=listar");
 
 				// consulta produto para alteração
 			} else if (cmd.equalsIgnoreCase("atuProdutos")) {

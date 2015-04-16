@@ -23,14 +23,12 @@
 				<tr>
 					<td>Categoria:</td>
 					<td><input type="text" maxlength="60" size="60"
-						name="txtCategoria" value="<%=categoria.getCategoria()%>"
-						readonly="readonly" /></td>
+						name="txtCategoria" value="<%=categoria.getCategoria()%>" /></td>
 				</tr>
 				<tr>
 					<td>Linha:</td>
 					<td><input type="text" maxlength="60" size="60"
-						name="txtLinha" value="<%=categoria.getLinha()%>"
-						readonly="readonly" /></td>
+						name="txtLinha" value="<%=categoria.getLinha()%>" /></td>
 				</tr>
 				<tr>
 					<td>Faixa Etaria</td>

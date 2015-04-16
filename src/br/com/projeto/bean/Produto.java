@@ -11,8 +11,8 @@ public class Produto {
 	private String fotoSite;
 	private String descricao;
 	
-	public Produto(int estoque,String nome,String fotoPrincipal, String fotoSite,float precoVenda,String descricao
-			,int codigo, String categoria ) {
+	public Produto(int estoque,String nome,int codigo, String fotoSite,float precoVenda,String descricao
+			,String fotoPrincipal, String categoria ) {
 		this.codigo = codigo;
 		this.categoria = categoria;
 		this.estoque = estoque;
@@ -25,6 +25,19 @@ public class Produto {
 	}
 
 	public Produto() {
+	}
+
+	public Produto(int cod, String cat, int esto, String nom, String principal,
+			String site, float preco, String desc) {
+		this.codigo = cod;
+		this.categoria = cat;
+		this.estoque = esto;
+		this.nome = nom;
+		this.precoVenda = preco;
+		this.fotoPrincipal = principal;
+		this.fotoSite = site;
+		this.descricao = desc;
+
 	}
 
 	public int getCodigo() {
