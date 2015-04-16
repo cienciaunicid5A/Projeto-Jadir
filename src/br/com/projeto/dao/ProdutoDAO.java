@@ -51,7 +51,7 @@ public class ProdutoDAO {
 		if (produto == null)
 			throw new Exception("O valor passado nao pode ser nulo");
 		try {
-			String SQL = "UPDATE produtos set codigo=?, categoria=?, estoque=?, nome=?, precoVenda=?, fotoPrincipal=?, fotoSite=?, descricao=? WHERE codigo = ?";
+			String SQL = "UPDATE produtos set categoria=?, estoque=?, nome=?, precoVenda=?, fotoPrincipal=?, fotoSite=?, descricao=? WHERE codigo = ?";
 			conn = this.conn;
 			ps = conn.prepareStatement(SQL);
 

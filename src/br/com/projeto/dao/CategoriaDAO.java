@@ -48,7 +48,7 @@ public class CategoriaDAO {
 		if (categoria == null)
 			throw new Exception("O valor passado nao pode ser nulo");
 		try {
-			String SQL = "UPDATE categorias set codigo=?, categoria=?, linha=?, faixaEtaria=? WHERE codigo = ?";
+			String SQL = "UPDATE categorias set categoria=?, linha=?, faixaEtaria=? WHERE codigo = ?";
 			conn = this.conn;
 			ps = conn.prepareStatement(SQL);
 			ps.setInt(1, categoria.getCodigo());
