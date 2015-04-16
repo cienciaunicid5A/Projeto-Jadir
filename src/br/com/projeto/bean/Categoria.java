@@ -1,7 +1,10 @@
 package br.com.projeto.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Categoria {
-	// padrão JavaBean ou POJO – Classe com getters/setters, mais métodos
+	// padrï¿½o JavaBean ou POJO ï¿½ Classe com getters/setters, mais mï¿½todos
 	// construtores
 	private int codigo;
 	private String categoria;
@@ -14,6 +17,7 @@ public class Categoria {
 		this.linha = linha;
 		this.faixaEtaria = faixaEtaria;
 	}
+
 
 	public Categoria() {
 	}

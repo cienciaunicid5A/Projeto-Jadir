@@ -1,14 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.List"%>
+<%@ page import="br.com.projeto.bean.*"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Layout Home Page</title>
-   <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="css/simple-sidebar.css" rel="stylesheet">
 </head>
 
 <body>
@@ -23,107 +27,55 @@
 
 			<table align="right" id="adm">
 				<form action="ServletUsuarios?cmd=con" method="post">
-				<tr>
-					<td height="108">
-						<fieldset>
+					<tr>
+						<td height="108">
+							<fieldset>
 
-							<legend>Acesso Adm</legend>
-							Login <input type="text" name="txtLogin" size="10" maxlenght="10"><br>
-							Senha <input type="password" name="txtSenha" size="10"maxlenght="10"><br> 
-							<input type="submit" value="Entrar"></a>
+								<legend>Acesso Adm</legend>
+								Login <input type="text" name="txtLogin" size="10"
+									maxlenght="10"><br> Senha <input type="password"
+									name="txtSenha" size="10" maxlenght="10"><br> <input
+									type="submit" value="Entrar"></a>
 
-						</fieldset>
-					</td>
-				</tr>
+							</fieldset>
+						</td>
+					</tr>
 				</form>
 			</table>
-
 			<img src="img/kkk.png" width="1100" height="125">
 		</div>
-
-
-
 		<!-- Menu das categorias -->
-		   <div>
-		   	<tbody>
-					<c:forEach items="${caterias}" var="categoria">
-						<tr>
-							<td><c:out value="${categoria.categoria}" /></td>
-						</tr>
-					</c:forEach>
-				</tbody>
-           <!--  <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Categorias 
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul> -->
-        </div>
-		
-	<!-- 	<div id='lateral' align="left">
-			<font color="#FF0033"><u>
-					<h2>Categorias</h2>
-					<br>
-				<br>
-			</u> <a href='index.jsp'> Todas </a> <br> <?php
-			public List toCategorias() throws Exception {
-			try {
-				conn = this.conn;
-				ps = conn.prepareStatement("SELECT * FROM produtos ORDER BY categoria");
-				rs = ps.executeQuery();
-				List<Cate> list = new ArrayList<Cate>();
-				while (rs.next()) {
-					
-					String categoria = rs.getString("categoria");
-					
-					list.add(new Cate(categoria));
-				}
-				return list;
-			} catch (SQLException sqle) {
-				throw new Exception(sqle);
-			} finally {
-				ConnectionFactory.closeConnection(conn, ps, rs);
-			}
-		}
-				?> <!-- Colocar link de cada categoria --> </font>
+		<div>
+			<ul>
+				<li>Categoria</li>
+				<%
+					List<Categoria> lista = new ArrayList<Categoria>();
+				%>
+				<%
+					lista = (ArrayList) request.getAttribute("categoriaList");
+				%>
+				<%
+					for (Categoria a : lista) {
+				%>
+				<li><%=a.getCategoria()%></li>
+				<%
+					}
+				%>
+			</ul>
+		</div>
 
+	</div>
 
-		</div> -->
+	<!-- Fotos Dos produtos -->
+	<div id='conteudo'></div>
 
-
-
-		<!-- Fotos Dos produtos -->
-		<div id='conteudo'></div>
-
-		<?php
+	<?php
 					$sql = 'SELECT * FROM produtos';
 					if( isset($_GET['categoria']) )
 						$sql = $sql . ' WHERE '
 						die('Categoria enviada:' . $_GET['categoria']);					
 				?>
-		<?php
+	<?php
 					$sql='SELECT * FROM produtos';
 					
 					if( isset($_GET['categoria']) )
@@ -151,12 +103,11 @@
 					}
 				?>
 
-		<!-- Rodapé -->
-		<div id='rodape'>
-			<img src="img/rodape.jpg">
-
-		</div>
+	<!-- Rodapé -->
+	<div id='rodape'>
+		<img src="img/rodape.jpg">
 
 	</div>
+
 </body>
 </html>

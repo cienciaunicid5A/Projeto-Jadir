@@ -14,17 +14,14 @@
 			<tr>
 				<th colspan="6"><h3>Todas</h3></th>
 			</tr>
-			<tr>
-				<th><a href="atualizarCategoria.jsp">Alterar</a></th>
-				<th><a href="excluirCategoria.jsp">Excluir</a></th>
-				<th><a href="incluirCategorias.jsp">Incluir</a></th>
+			<tr><th><a href="atualizarCategoria.jsp">Alterar</a></th><th><a href="excluirCategoria.jsp">Excluir</a></th><th><a href="incluirCategorias.jsp">Incluir</a> </th>
 			</tr>
 			<tr>
 				<th>Codigo</th>
 				<th>Categoria</th>
 				<th>Linha</th>
 				<th>Faixa Etaria</th>
-
+				
 			</tr>
 			<%
 				List<Categoria> lista = new ArrayList<Categoria>();
@@ -36,15 +33,14 @@
 				<td><%=a.getCategoria()%></td>
 				<td><%=a.getLinha()%></td>
 				<td><%=a.getFaixaEtaria()%></td>
-
-
+				 
+				
 			</tr>
 			<%
 				}
 			%>
 			<tr>
-				<td colspan="6" align="center"><a href="areaAdministrativa.jsp">Area
-						Administrativa</a></td>
+				<td colspan="6" align="center"><a href="areaAdministrativa.jsp">Area Administrativa</a></td>
 			</tr>
 		</table>
 	</center>
