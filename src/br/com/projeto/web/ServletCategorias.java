@@ -73,8 +73,7 @@ public class ServletCategorias extends HttpServlet {
 				// exclui aluno
 			} else if (cmd.equalsIgnoreCase("excluirCategoria")) {
 				dao.excluir(categoria);
-				rd = request
-						.getRequestDispatcher("ServletCategorias?cmd=listar");
+				rd = request.getRequestDispatcher("ServletCategorias?cmd=listar");
 
 				// consulta aluno para alteração
 			} else if (cmd.equalsIgnoreCase("atuCategorias")) {
