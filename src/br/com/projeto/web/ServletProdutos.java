@@ -46,15 +46,17 @@ public class ServletProdutos extends HttpServlet {
 			try {
 				dao = new ProdutoDAO();
 				isNotDetalhes = false;
-				produto = dao.procurarProduto(Integer.valueOf(cmd));
+				Produto produtoTeste = dao
+						.procurarProduto(Integer.valueOf(cmd));
+				HttpSession session = request.getSession(true);
+				session.setAttribute("produtoDetalhe", produtoTeste);
+				rd = request.getRequestDispatcher("/detalhesProdutos.jsp");
+				rd.forward(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			HttpSession session = request.getSession(true);
-			session.setAttribute("produtoDetalhe", produto);
-			rd = request.getRequestDispatcher("/detalhesProdutos.jsp");
-			rd.forward(request, response);
+
 		} else if (isNotDetalhes) {
 			if (cmd != null) {
 				try {
