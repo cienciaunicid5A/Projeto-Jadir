@@ -1,8 +1,11 @@
+<%@page import="br.com.projeto.dao.CategoriaDAO"%>
+<%@page import="br.com.projeto.dao.ProdutoDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.List"%>
 <%@ page import="br.com.projeto.bean.*"%>
+<%@ page import="br.com.projeto.web.*"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -45,67 +48,80 @@
 			<img src="img/kkk.png" width="1100" height="125">
 		</div>
 		<!-- Menu das categorias -->
-		<div>
-			<ul>
-				Categoria
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">Categorias</li>
 				<%
-				List<Categoria> lista = new ArrayList<Categoria>();
-				lista = (ArrayList) request.getAttribute("categoriaList");
-				for (Categoria a : lista) {
-			%>
-
-				<li><%=a.getCategoria()%></li>
-
+					List<Categoria> lista = new CategoriaDAO().todasCategorias();
+					for (Categoria a : lista) {
+				%>
+				<li value="<%=a.getCodigo()%>"><a
+					href="http://localhost:8080/TrabalhoJadir/ServletCategorias?cmd=<%=a.getCodigo()%>"><%=a.getCategoria()%></a></li>
 				<%
 					}
 				%>
 			</ul>
 		</div>
 
-	</div>
 
-	<!-- Fotos Dos produtos -->
-	<div id='conteudo'></div>
 
-	<?php
-					$sql = 'SELECT * FROM produtos';
-					if( isset($_GET['categoria']) )
-						$sql = $sql . ' WHERE '
-						die('Categoria enviada:' . $_GET['categoria']);					
-				?>
-	<?php
-					$sql='SELECT * FROM produtos';
-					
-					if( isset($_GET['categoria']) )
-					{
-						$cat = $_GET['categoria'];
-						$sql = $sql . " WHERE categoria='$cat' "; 
-						//die($sql);
+		<!-- Fotos Dos produtos -->
+		<div id='conteudo' align="right">
+			<table>
+				<%
+					int count = 3;
+					List<Produto> listaProduto = (ArrayList) session
+							.getAttribute("produtos");
+					if (listaProduto == null) {
+						listaProduto = new ProdutoDAO()
+								.procurarProdutoPorCategoria("BONECAS");
 					}
-					$rsProdutos = mysql_query($sql) or
-						die("ERRO MYSQL" . mysql_error() );
-						
-					$totLinhas = mysql_num_rows($rsProdutos) or
-						die("ERRO MYSQL" . mysql_error() );
-					
-					for($n=0 ; $n<$totLinhas ; $n++)
-					{
-						$imagem = mysql_result($rsProdutos, $n, 'fotoSite');
-						$nome =  mysql_result($rsProdutos, $n, 'nome');
-						$preco=  mysql_result($rsProdutos, $n, 'precoVenda');
-						echo "<div class='fotos'>";
-						echo "<img src='imgs/$imagem'> <br>";
-						echo $nome . '<br>';
-						echo 'R$ ' . $preco;
-						echo '</div>';
+					for (Produto a : listaProduto) {
+				%>
+				<%
+					if (count == 3) {
+				%>
+				<tr>
+					<%
+						}
+					%>
+					<td>
+						<div>
+							<%
+								String img = a.getFotoSite();
+							%>
+							<img src="img/<%=img%>"><br>
+							<%=a.getNome()%><br>
+							<%=a.getPrecoVenda()%><br> <a
+								href="http://localhost:8080/TrabalhoJadir/ServletProdutos?cmd=<%=a.getCodigo()%>">Mais
+								Detalhes</a>
+						</div> <%
+ 	count = count + 1;
+ %>
+					</td>
+
+					<%
+						if (count == 3) {
+								count = 0;
+					%>
+
+				</tr>
+				<%
 					}
-				?>
+				%>
+				<%
+					}
+				%>
 
-	<!-- Rodapé -->
-	<div id='rodape'>
-		<img src="img/rodape.jpg">
+			</table>
+		</div>
 
+
+		<!-- Rodapé -->
+	<!-- 	<div id='rodape' align="bottom">
+			<img src="img/rodape.jpg">
+
+		</div> -->
 	</div>
-
 </body>
 </html>

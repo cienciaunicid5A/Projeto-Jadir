@@ -32,90 +32,115 @@ public class ServletProdutos extends HttpServlet {
 	protected void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		// a variável cmd indica o tipo de ação - incluir, alterar,
+		// a variï¿½vel cmd indica o tipo de aï¿½ï¿½o - incluir, alterar,
 		// consulta.....
 		String cmd = request.getParameter("cmd");
 		// cria um objeto dao - CRUD
 		ProdutoDAO dao;
 		// cria um objeto do tipo aluno
+
+		boolean isNotDetalhes = true;
 		Produto produto = new Produto();
-		if (cmd != null) {
-			try {
-				// inicializa os atributos da classe Categoria
-				produto.setCodigo(Integer.parseInt(request.getParameter("txtCodigo")));
-				produto.setCategoria(request.getParameter("txtCategoria"));
-				produto.setEstoque(Integer.parseUnsignedInt("txtEstoque"));
-				produto.setNome(request.getParameter("txtNome"));
-				produto.setPrecoVenda(Float.parseFloat(request.getParameter("txtPrecoVenda")));
-				produto.setFotoPrincipal(request.getParameter("txtFotoprincipal"));
-				produto.setFotoSite(request.getParameter("txtFotoSite"));
-				produto.setDescricao(request.getParameter("txtDescricao"));
-				
-				
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-		}
-		try {
-			// cria a instancia do objeto dao
-			dao = new ProdutoDAO();
+		if (cmd.length() == 1 || cmd.length() == 2) {
 			RequestDispatcher rd = null;
-
-			// lista todos as Produto
-			if (cmd.equalsIgnoreCase("listar")) {
-				List produtoList = dao.todosProdutos();
-				// cria uma sessão para encaminhar a lista para uma JSP
-				request.setAttribute("produtoList", produtoList);
-				// redireciona para a JSP mostraAlunosCads
-				rd = request.getRequestDispatcher("/mostrarProdutos.jsp");
+			try {
+				dao = new ProdutoDAO();
+				isNotDetalhes = false;
+				produto = dao.procurarProduto(Integer.valueOf(cmd));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-
-			// incluir Produto
-			else if (cmd.equalsIgnoreCase("incluirProdutos")) {
-				dao.salvar(produto);
-				rd = request.getRequestDispatcher("ServletProdutos?cmd=listar");
-
-				// consulta produto para exclusão
-			} else if (cmd.equalsIgnoreCase("excProdutos")) {
-				produto = dao.procurarProduto(produto.getCodigo());
-				HttpSession session = request.getSession(true);
-				session.setAttribute("produto", produto);
-				rd = request.getRequestDispatcher("/formExcluirProduto.jsp");
-
-				// exclui produto
-			} else if (cmd.equalsIgnoreCase("excluirProduto")) {
-				dao.excluir(produto);
-				rd = request.getRequestDispatcher("ServletProdutos?cmd=listar");
-
-				// consulta produto para alteração
-			} else if (cmd.equalsIgnoreCase("atuProdutos")) {
-				produto = dao.procurarProduto(produto.getCodigo());
-				HttpSession session = request.getSession(true);
-				session.setAttribute("produto", produto);
-				rd = request.getRequestDispatcher("/formAtualizarProduto.jsp");
-
-				// consulta produto***
-			} else if (cmd.equalsIgnoreCase("con")) {
-				produto = dao.procurarProduto(produto.getCodigo());
-				HttpSession session = request.getSession(true);
-				session.setAttribute("produto", produto);
-				rd = request.getRequestDispatcher("/formConProduto.jsp");
-
-				// altera aluno
-			} else if (cmd.equalsIgnoreCase("atualizarProduto")) {
-				dao.atualizar(produto);
-				rd = request.getRequestDispatcher("ServletProdutos?cmd=listar");
-
-				// direciona para a página principal
-			} else if (cmd.equalsIgnoreCase("principal")) {
-				rd = request.getRequestDispatcher("/index.jsp");
-			}
-			// executa a ação de direcionar para a página JSP
+			HttpSession session = request.getSession(true);
+			session.setAttribute("produtoDetalhe", produto);
+			rd = request.getRequestDispatcher("/detalhesProdutos.jsp");
 			rd.forward(request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new ServletException(e);
+		} else if (isNotDetalhes) {
+			if (cmd != null) {
+				try {
+					// inicializa os atributos da classe Categoria
+					produto.setCodigo(Integer.parseInt(request
+							.getParameter("txtCodigo")));
+					produto.setCategoria(request.getParameter("txtCategoria"));
+					produto.setEstoque(Integer.parseUnsignedInt("txtEstoque"));
+					produto.setNome(request.getParameter("txtNome"));
+					produto.setPrecoVenda(Float.parseFloat(request
+							.getParameter("txtPrecoVenda")));
+					produto.setFotoPrincipal(request
+							.getParameter("txtFotoprincipal"));
+					produto.setFotoSite(request.getParameter("txtFotoSite"));
+					produto.setDescricao(request.getParameter("txtDescricao"));
 
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+			}
+			try {
+				// cria a instancia do objeto dao
+				dao = new ProdutoDAO();
+				RequestDispatcher rd = null;
+
+				// lista todos as Produto
+				if (cmd.equalsIgnoreCase("listar")) {
+					List produtoList = dao.todosProdutos();
+					// cria uma sessï¿½o para encaminhar a lista para uma JSP
+					request.setAttribute("produtoList", produtoList);
+					// redireciona para a JSP mostraAlunosCads
+					rd = request.getRequestDispatcher("/mostrarProdutos.jsp");
+				}
+
+				// incluir Produto
+				else if (cmd.equalsIgnoreCase("incluirProdutos")) {
+					dao.salvar(produto);
+					rd = request
+							.getRequestDispatcher("ServletProdutos?cmd=listar");
+
+					// consulta produto para exclusï¿½o
+				} else if (cmd.equalsIgnoreCase("excProdutos")) {
+					produto = dao.procurarProduto(produto.getCodigo());
+					HttpSession session = request.getSession(true);
+					session.setAttribute("produto", produto);
+					rd = request
+							.getRequestDispatcher("/formExcluirProduto.jsp");
+
+					// exclui produto
+				} else if (cmd.equalsIgnoreCase("excluirProduto")) {
+					dao.excluir(produto);
+					rd = request
+							.getRequestDispatcher("ServletProdutos?cmd=listar");
+
+					// consulta produto para alteraï¿½ï¿½o
+				} else if (cmd.equalsIgnoreCase("atuProdutos")) {
+					produto = dao.procurarProduto(produto.getCodigo());
+					HttpSession session = request.getSession(true);
+					session.setAttribute("produto", produto);
+					rd = request
+							.getRequestDispatcher("/formAtualizarProduto.jsp");
+
+					// consulta produto***
+				} else if (cmd.equalsIgnoreCase("con")) {
+					produto = dao.procurarProduto(produto.getCodigo());
+					HttpSession session = request.getSession(true);
+					session.setAttribute("produto", produto);
+					rd = request.getRequestDispatcher("/formConProduto.jsp");
+
+					// altera aluno
+				} else if (cmd.equalsIgnoreCase("atualizarProduto")) {
+					dao.atualizar(produto);
+					rd = request
+							.getRequestDispatcher("ServletProdutos?cmd=listar");
+
+					// direciona para a pï¿½gina principal
+				} else if (cmd.equalsIgnoreCase("principal")) {
+					rd = request.getRequestDispatcher("/index.jsp");
+				}
+				// executa a aï¿½ï¿½o de direcionar para a pï¿½gina JSP
+				rd.forward(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new ServletException(e);
+
+			}
 		}
 	}
 

@@ -49,7 +49,7 @@ public class UsuariosDAO {
 		if (usuarios == null)
 			throw new Exception("O valor passado nao pode ser nulo");
 		try {
-			String SQL = "UPDATE usuarios set login=?, senha=?, nomeCompleto=?, email=? WHERE nomeCompleto = ?";
+			String SQL = "UPDATE usuarios set senha=?, nomeCompleto=?, email=? WHERE login = ?";
 			conn = this.conn;
 			ps = conn.prepareStatement(SQL);
 

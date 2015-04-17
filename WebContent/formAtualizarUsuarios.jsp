@@ -3,10 +3,34 @@
 
 <html>
 <head>
-<title>Atualizar Usuarios</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Atualizar Produtos</title>
 </head>
-<body>
-	<h3 align="center">Atualizar Usuarios</h3>
+<body background='img/fundo.jpg'>
+
+<div align="top" class="navbar navbar-inverse">
+
+	<div class="row">
+	
+		<div class='col-md-1'>
+			<img src='img/LOGOMINI2.png'>
+		</div>
+
+
+		<div align='center' class="col-md-10">
+		
+			<h4>
+				<font color="white"> ATUALIZAR PRODUTOS</font>
+			</h4>
+		</div>
+		
+ 	</div>
+
+	</div>
+
 	<jsp:useBean id="usuarios" scope="session"
 		class="br.com.projeto.bean.Usuarios" />
 	
@@ -35,8 +59,8 @@
 						name="txtEmail" value="<%=usuarios.getEmail()%>" /></td>
 				</tr>
 				<tr>
-					<th colspan="2"><input type="submit" name="btnAlterar"
-						value="Confirma Atualização" /></th>
+					<th colspan="2"><button class="btn btn-danger" type="button" name="btnAlterar">Confirma Atualização</button>
+					</th>
 				</tr>
 			</table>
 		</center>

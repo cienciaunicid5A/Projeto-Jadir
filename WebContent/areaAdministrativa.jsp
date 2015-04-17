@@ -3,70 +3,56 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body background='img/fundo.jpg'>
+
 
 	<title>Administrativo</title>
-	<style>
-div {
-	color: black;
-	border: 1px solid black;
-}
-
-#cabec {background-color;
-	height: 125px;
-}
-
-#lateral {
-	background-color: #c9e7ff;
-	height: 530px;
-	width: 1350px;
-	float: left;
-}
-
-#rodape {
-	height: 24px;
-	clear: both;
-	border: 1px solid black;
-}
-
-#geral {
-	width: 1350px;
-	border: 1px solid black;
-}
-</style>
 </head>
 
 <body>
 
-	<div id='geral'>
+	<div align="top" class="navbar navbar-inverse">
 
-		<div id='cabec'>
-
-
-
-			<img src="Nova pasta/kkk.png" width="1100" height="125">
+	<div class="row">
+	
+		<div class='col-md-1'>
+			<img src='img/LOGOMINI2.png'>
 		</div>
 
 
-
-		<div id='lateral' align="left">
-			<font color="#FF0033"><u>
-					<h2>
-						<center>ÁREA ADMINISTRATIVA</center>
-					</h2>
-					<br>
-				<br>
-			</u>
-
-				<center>
-					<a href="ServletCategorias?cmd=listar"> Cadastro de Categorias</a> <br>
-					<BR> <a href="ServletProdutos?cmd=listar"> Cadastro de Produtos</a> <br>
-					<BR> <a href="ServletUsuarios?cmd=listar"> Cadastro de Usuários</a> <br>
-					<BR>
-				</center>
+		<div align='center' class="col-md-10">
+		
+			<h4>
+				<font color="white"> ÁREA ADMINISTRATIVA</font>
+			</h4>
 		</div>
+		
+ 	</div>
+
+	</div>
+
+
+
+
+	<div id='lateral' align="center">
+
+
+		<a href="ServletCategorias?cmd=listar">
+			<button class="btn btn-danger" type="button">Cadastro de
+				Categorias</button>
+		</a> <br> <BR> <a href="ServletProdutos?cmd=listar">
+			<button class="btn btn-danger" type="button">Cadastro de
+				Produtos</button>
+		</a> <br> <BR> <a href="ServletUsuarios?cmd=listar"><button
+				class="btn btn-danger" type="button">Cadastro de Usuários</button></a> <br>
+		<BR>
+
+	</div>
 </body>
 </html>
