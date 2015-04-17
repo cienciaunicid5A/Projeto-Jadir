@@ -3,25 +3,52 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.List"%>
 <%@ page import="br.com.projeto.bean.Categoria"%>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
 <title>Lista de Categorias</title>
 </head>
-<body>
+<body background='img/fundo.jpg'>
+
+	<div align="top" class="navbar navbar-inverse">
+
+		<div class="row">
+
+			<div class='col-md-1'>
+				<img src='img/LOGOMINI2.png'>
+			</div>
+
+
+			<div align='center' class="col-md-10">
+
+				<h4>
+					<font color="white"> LISTA DE CATEGORIAS</font>
+				</h4>
+			</div>
+
+		</div>
+
+	</div>
+
 	<center>
-		<table width="100%" border="1" cellpadding="2" cellspacing="0">
-			<tr>
-				<th colspan="6"><h3>Todas</h3></th>
-			</tr>
-			<tr><th><a href="atualizarCategoria.jsp">Alterar</a></th><th><a href="excluirCategoria.jsp">Excluir</a></th><th><a href="incluirCategorias.jsp">Incluir</a> </th>
+		<table class="table table-hover">
+			
+			<tr align="center">
+			<th></th>
+				<th><button class="btn" type="button"><a href="atualizarCategoria.jsp">Alterar</a></button></th>
+				<th><button class="btn" type="button"><a href="excluirCategoria.jsp">Excluir</a></button></th>
+				<th><button class="btn" type="button"><a href="incluirCategorias.jsp">Incluir</a></button>
+				</th>
 			</tr>
 			<tr>
 				<th>Codigo</th>
 				<th>Categoria</th>
 				<th>Linha</th>
 				<th>Faixa Etaria</th>
-				
+
 			</tr>
 			<%
 				List<Categoria> lista = new ArrayList<Categoria>();
@@ -33,14 +60,15 @@
 				<td><%=a.getCategoria()%></td>
 				<td><%=a.getLinha()%></td>
 				<td><%=a.getFaixaEtaria()%></td>
-				 
-				
+
+
 			</tr>
 			<%
 				}
 			%>
 			<tr>
-				<td colspan="6" align="center"><a href="areaAdministrativa.jsp">Area Administrativa</a></td>
+				<td colspan="6" align="center"><button class="btn" type="button"><a href="areaAdministrativa.jsp">Area
+						Administrativa</a></button></td>
 			</tr>
 		</table>
 	</center>

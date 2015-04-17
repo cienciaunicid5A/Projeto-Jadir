@@ -1,13 +1,16 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="ISO-8859-1"%>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
 <html>
 <head>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Atualizar Produtos</title>
+<title>Atualizar usuário</title>
 </head>
 <body background='img/fundo.jpg'>
 
@@ -23,7 +26,7 @@
 		<div align='center' class="col-md-10">
 		
 			<h4>
-				<font color="white"> ATUALIZAR PRODUTOS</font>
+				<font color="white"> ATUALIZAR USUÁRIO</font>
 			</h4>
 		</div>
 		
@@ -46,20 +49,20 @@
 				<tr>
 					<td>Senha:</td>
 					<td><input type="text" maxlength="60" size="60" name="txtSenha"
-						value="<%=usuarios.getSenha()%>" /></td>
+						value="<%=usuarios.getSenha()%>" style="margin-top: 5px" /></td>
 				</tr>
 				<tr>
 					<td>Nome Completo:</td>
 					<td><input type="text" maxlength="60" size="60"
-						name="txtNomeCompleto" value="<%=usuarios.getNomeCompleto()%>" /></td>
+						name="txtNomeCompleto" value="<%=usuarios.getNomeCompleto()%>" style="margin-top: 5px" /></td>
 				</tr>
 				<tr>
 					<td>E-mail</td>
 					<td><input type="text" maxlength="60" size="60"
-						name="txtEmail" value="<%=usuarios.getEmail()%>" /></td>
+						name="txtEmail" value="<%=usuarios.getEmail()%>" style="margin-top: 5px" /></td>
 				</tr>
 				<tr>
-					<th colspan="2"><button class="btn btn-danger" type="button" name="btnAlterar">Confirma Atualização</button>
+					<th colspan="2"><button class="btn btn-danger" type="submit" name="btnAlterar" style="margin-top: 5px" >Confirma Atualização</button>
 					</th>
 				</tr>
 			</table>

@@ -1,10 +1,11 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="estilo.css" />
-<title>Consulta Categorias</title>
+<title>Consulta Categoria</title>
 </head>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -25,7 +26,7 @@
 			<div align='center' class="col-md-10">
 
 				<h4>
-					<font color="white"> CONSULTA CATEGORIAS</font>
+					<font color="white"> CONSULTAR CATEGORIA</font>
 				</h4>
 			</div>
 
@@ -49,23 +50,24 @@
 					<td>Categoria:</td>
 					<td><input type="text" maxlength="60" size="60"
 						name="txtCategoria" value="<%=categoria.getCategoria()%>"
-						readonly="readonly" /></td>
+						readonly="readonly" style="margin-top: 5px"  /></td>
 				</tr>
 				<tr>
 					<td>Linha:</td>
 					<td><input type="text" maxlength="60" size="60"
 						name="txtLinha" value="<%=categoria.getLinha()%>"
-						readonly="readonly" /></td>
+						readonly="readonly" style="margin-top: 5px"  /></td>
 				</tr>
 				<tr>
 					<td>Faixa Etaria</td>
 					<td><input type="text" maxlength="60" size="60"
 						name="txtFaixaEtaria" value="<%=categoria.getFaixaEtaria()%>"
-						readonly="readonly" /></td>
+						readonly="readonly" style="margin-top: 5px"  /></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><a href="index.jsp">
-			<button class="btn btn-danger" type="button">Página Principal</button></a></td>
+			<button class="btn btn-danger" type="button" style="margin-top: 5px" >Pagina inicial</button>
+		</a></td>
 				</tr>
 			</table>
 		</center>

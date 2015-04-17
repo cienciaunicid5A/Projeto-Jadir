@@ -1,6 +1,8 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="ISO-8859-1"%>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 
@@ -45,24 +47,22 @@
 				<tr>
 					<td>Categoria: </td>
 					<td><input type="text" maxlength="60" size="60" name="txtCategoria"
-						value="<%=categoria.getCategoria()%>" /></td>
+						value="<%=categoria.getCategoria()%>" style="margin-top: 5px" /></td>
 				</tr>
 				<tr>
 					<td>Linha: </td>
 					<td><input type="text" maxlength="60" size="60"
-						name="txtLinha" value="<%=categoria.getLinha()%>" /></td>
+						name="txtLinha" value="<%=categoria.getLinha()%>" style="margin-top: 5px" /></td>
 				</tr>
 				<tr>
 					<td>Faixa Etaria:   </td>
 					<td><input type="text" maxlength="60" size="60"
-						name="txtFaixaEtaria" value="<%=categoria.getFaixaEtaria()%>" /></td>
+						name="txtFaixaEtaria" value="<%=categoria.getFaixaEtaria()%>" style="margin-top: 5px" /></td>
 				</tr>
 				<tr>
 					<td colspan="2">
 					<button class="btn btn-danger" type="submit" name="btnAtualizar">Confirma Atualização</button>
-				
-						
-						</td>
+				</td>
 				</tr>
 			</table>
 		</center>
