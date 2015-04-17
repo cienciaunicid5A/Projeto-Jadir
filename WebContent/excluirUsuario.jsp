@@ -7,7 +7,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Excluir usuário</title>
 </head>
 <body background='img/fundo.jpg'>
 
@@ -43,9 +43,9 @@
 			<form action="ServletUsuarios?cmd=excUsuarios" method="post">
 				<tbody>
 					<tr bgcolor='white' >
-						<td><b>Codigo:</b> <input type="text" name="txtlogin" size="10"
+						<td><b>Login:</b> <input type="text" name="txtlogin" size="10"
 							maxlenght="10"/> 
-							<input type="submit" value="Excluir">
+							<input class="btn btn-danger" type="submit" value="Excluir">
 						</td>
 					</tr>
 

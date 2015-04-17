@@ -7,7 +7,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Alterar Produto</title>
 </head>
 <body background='img/fundo.jpg'>
 
@@ -40,12 +40,12 @@
 
 <center>
 		<table class="table table-condensed">
-			<form action="ServletpProdutos?cmd=atuProdutos" method="post">
+			<form action="ServletProdutos?cmd=atuProdutos" method="post">
 				<tbody>
 					<tr bgcolor='white' >
 						<td><b>Codigo:</b> <input type="text" name="txtCodigo" size="10"
 							maxlenght="10"/> 
-							<input type="submit" value="Alterar">
+							<input class="btn btn-danger" type="submit" value="Alterar">
 						</td>
 					</tr>
 

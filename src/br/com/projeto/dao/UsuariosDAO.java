@@ -51,6 +51,7 @@ public class UsuariosDAO {
 		try {
 			String SQL = "UPDATE usuarios set senha=?, nomeCompleto=?, email=? WHERE login = ?";
 			conn = this.conn;
+			
 			ps = conn.prepareStatement(SQL);
 
 			ps.setString(1, usuarios.getLogin());
